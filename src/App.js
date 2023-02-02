@@ -53,6 +53,16 @@ const Pokemon = () => {
     renderPokemon(inputValue.toLowerCase());
   };
 
+  const handleNext = () => {
+    setSearchPokemon(searchPokemon + 1);
+    renderPokemon(searchPokemon + 1);
+  };
+
+  const handlePrevious = () => {
+    setSearchPokemon(searchPokemon - 1);
+    renderPokemon(searchPokemon - 1);
+  };
+
   return (
     <main>
       <img src={pokemonImage} alt="pokemon" className="pokemon__image" />
@@ -74,16 +84,10 @@ const Pokemon = () => {
       </form>
 
       <div className="buttons">
-        <button
-          className="button btn-prev"
-          onClick={() => setSearchPokemon(searchPokemon - 1)}
-        >
+        <button className="button btn-prev" onClick={handlePrevious}>
           Prev &lt;
         </button>
-        <button
-          className="button btn-next"
-          onClick={() => setSearchPokemon(searchPokemon + 1)}
-        >
+        <button className="button btn-next" onClick={handleNext}>
           Next &gt;
         </button>
         <button className="button btn-search" onClick={handleSubmit}>
